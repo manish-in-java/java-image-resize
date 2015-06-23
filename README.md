@@ -1,6 +1,4 @@
-[![Build status](https://drone.io/github.com/manish-in-java/java-image-resize/status.png)](https://drone.io/github.com/manish-in-java/java-image-resize/latest)
-
-# Overview
+# Overview [![Build status](https://drone.io/github.com/manish-in-java/java-image-resize/status.png)](https://drone.io/github.com/manish-in-java/java-image-resize/latest)
 A sample application that demonstrates resizing images using the following Java
 libraries:
 
