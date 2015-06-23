@@ -8,6 +8,9 @@ libraries:
 * [Thumbnailator](https://code.google.com/p/thumbnailator)
 * [Java Image Scaling library](https://code.google.com/p/java-image-scaling)
 
+Requires Java 8 and Apache Maven 3.x to run.  Run as `mvn clean tomcat7:run` to start
+an embedded Tomcat instance on [http://localhost](http://localhost).
+
 # License
 This sample application and its associated source code in its entirety is being made
 available under the following licensing terms.
