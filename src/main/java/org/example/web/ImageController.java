@@ -22,33 +22,33 @@ public class ImageController
   private static final String SESSION_ATTRIBUTE_NAME = "model";
 
   @Autowired
-  ImageService imageService;
+  private ImageService imageService;
 
-  @RequestMapping(method = RequestMethod.GET, value = "/imgScalr")
+  @RequestMapping("/imgScalr")
   public void imgScalr(final HttpServletResponse response, final HttpSession session) throws IOException
   {
     final ImageResizeResponse model = model(session);
-    if (model != null && model.getImageScalrImage() != null)
+    if (model != null)
     {
       write(model.getImageScalrImage(), response);
     }
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/javaImageScaling")
+  @RequestMapping("/javaImageScaling")
   public void javaImageScaling(final HttpServletResponse response, final HttpSession session) throws IOException
   {
     final ImageResizeResponse model = model(session);
-    if (model != null && model.getJavaImageScalingImage() != null)
+    if (model != null)
     {
       write(model.getJavaImageScalingImage(), response);
     }
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/thumbnailator")
+  @RequestMapping("/thumbnailator")
   public void thumbnailator(final HttpServletResponse response, final HttpSession session) throws IOException
   {
     final ImageResizeResponse model = model(session);
-    if (model != null && model.getThumbnailatorImage() != null)
+    if (model != null)
     {
       write(model.getThumbnailatorImage(), response);
     }
@@ -65,7 +65,7 @@ public class ImageController
     return upload();
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/")
+  @RequestMapping("/")
   public String upload()
   {
     return "home";
@@ -80,11 +80,12 @@ public class ImageController
 
   private void write(final BufferedImage image, final HttpServletResponse response) throws IOException
   {
-    final OutputStream stream = response.getOutputStream();
-    response.setContentType("image/png");
+    try (final OutputStream stream = response.getOutputStream())
+    {
+      response.setContentType("image/png");
 
-    ImageIO.write(image, "PNG", stream);
-    response.flushBuffer();
-    stream.close();
+      ImageIO.write(image, "PNG", stream);
+      response.flushBuffer();
+    }
   }
 }

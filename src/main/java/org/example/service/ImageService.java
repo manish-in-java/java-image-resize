@@ -20,12 +20,9 @@ public class ImageService
   {
     final ImageResizeResponse response = new ImageResizeResponse();
 
-    if (request.getImage() != null)
-    {
-      response.setImageScalrImage(Scalr.resize(request.getImage(), SIZE, SIZE, Scalr.OP_ANTIALIAS));
-      response.setJavaImageScalingImage(JAVA_IMAGE_SCALING_SAMPLER.filter(request.getImage(), null));
-      response.setThumbnailatorImage(Thumbnails.of(request.getImage()).size(SIZE, SIZE).asBufferedImage());
-    }
+    response.setImageScalrImage(Scalr.resize(request.getImage(), SIZE, SIZE, Scalr.OP_ANTIALIAS));
+    response.setJavaImageScalingImage(JAVA_IMAGE_SCALING_SAMPLER.filter(request.getImage(), null));
+    response.setThumbnailatorImage(Thumbnails.of(request.getImage()).size(SIZE, SIZE).asBufferedImage());
 
     return response;
   }
