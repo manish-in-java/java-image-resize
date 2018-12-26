@@ -1,4 +1,5 @@
-# Overview [![Build status](https://drone.io/github.com/manish-in-java/java-image-resize/status.png)](https://drone.io/github.com/manish-in-java/java-image-resize/latest) [![Code coverage status](https://coveralls.io/repos/manish-in-java/java-image-resize/badge.svg)](https://coveralls.io/r/manish-in-java/java-image-resize)
+[![Code coverage status](https://coveralls.io/repos/manish-in-java/java-image-resize/badge.svg)](https://coveralls.io/r/manish-in-java/java-image-resize)
+# Overview
 A sample application that demonstrates resizing images using the following Java
 libraries:
 
